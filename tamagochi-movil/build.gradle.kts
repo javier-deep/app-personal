@@ -7,7 +7,7 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.example.tamagochi_movil"
+        applicationId = "com.example.tamagochifit"
         minSdk = 35
         targetSdk = 37
         versionCode = 1
@@ -38,6 +38,9 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.material)
     implementation(libs.play.services.wearable)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.okhttp.logging)
     testImplementation(libs.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.ext.junit)

@@ -40,16 +40,13 @@ class PetViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun calculatePetState(heartRate: Float, acceleration: Float): PetState {
-        // En el emulador, la gravedad es ~9.8 m/s². 
-        // Restamos la gravedad aproximada para detectar movimiento real.
         val linearAcceleration = Math.abs(acceleration - 9.8f)
 
         return when {
-            linearAcceleration > 5f -> PetState.ACTIVA
-            (heartRate >= 100f && heartRate <= 180f) -> PetState.FELIZ
-            (linearAcceleration < 1f && heartRate < 70f && heartRate > 0f) -> PetState.DORMIDA
-            linearAcceleration < 1f -> PetState.TRISTE
-            else -> PetState.ACTIVA
+            linearAcceleration > 3.0f -> PetState.ACTIVA   // Mueve el reloj un poco
+            (heartRate >= 90f && heartRate <= 180f) -> PetState.FELIZ // Pon 120 bpm
+            (heartRate > 10f && heartRate < 70f) -> PetState.DORMIDA   // Pon 50 bpm y no lo muevas
+            else -> PetState.TRISTE // Pon 0 bpm y no lo muevas
         }
     }
 

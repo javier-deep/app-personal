@@ -8,7 +8,7 @@ android {
     compileSdk = 37
 
     defaultConfig {
-        applicationId = "com.example.tamagochi_fit"
+        applicationId = "com.example.tamagochifit"
         minSdk = 35
         targetSdk = 37
         versionCode = 1
